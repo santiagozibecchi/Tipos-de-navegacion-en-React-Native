@@ -1,13 +1,28 @@
 import { View, Text, Button } from 'react-native';
-import React from 'react';
-import { StackScreenProps } from '@react-navigation/stack';
+import React, { useEffect } from 'react';
+// import { StackScreenProps } from '@react-navigation/stack';
 import { styles } from '../theme/appTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { DrawerScreenProps } from '@react-navigation/drawer';
 
-interface Props extends StackScreenProps<any, any> { }
+// interface Props extends StackScreenProps<any, any> { }
 
-const Pagina1Screen = ({ navigation }: Props) => {
+interface DrawerProps extends DrawerScreenProps<any, any> { }
 
+const Pagina1Screen = ({ navigation }: DrawerProps) => {
+
+     useEffect(() => {
+
+          navigation.setOptions({
+               headerLeft: () => (
+                    <Button
+                         title="Menu"
+                         onPress={() => navigation.toggleDrawer()}
+                    />
+               ),
+          });
+
+     }, [navigation]);
 
      return (
           <View style={styles.globalMargin}>
