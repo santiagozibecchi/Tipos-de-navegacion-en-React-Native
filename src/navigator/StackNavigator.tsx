@@ -19,6 +19,7 @@ export const MyStack = () => {
           <Stack.Navigator
                // initialRouteName=''
                screenOptions={{
+                    // headerShown: false,
                     headerStyle: {
                          elevation: 0,
                          // esta prop es para ios
