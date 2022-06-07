@@ -48,5 +48,6 @@ export const styles = StyleSheet.create({
      menuItemsText: {
           // backgroundColor: 'green',
           fontSize: 20,
+          marginLeft: 5,
      },
 });

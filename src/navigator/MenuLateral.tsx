@@ -1,10 +1,11 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
 import SettingsScreen from '../screens/SettingsScreen';
 // import { MyStack } from './StackNavigator';
 import { useWindowDimensions, Image, View, TouchableOpacity, Text } from 'react-native';
-import { styles } from '../theme/appTheme';
+import { colores, styles } from '../theme/appTheme';
 import { Tabs } from './Tabs';
 // import { createStackNavigator } from '@react-navigation/stack';
 
@@ -62,13 +63,23 @@ const MenuInterno = ({ navigation }: DrawerContentComponentProps) => {
 
                     <TouchableOpacity
                          onPress={() => navigation.navigate('Tabs')}
-                         style={styles.menuBoton}>
+                         style={{
+                              ...styles.menuBoton,
+                              // backgroundColor: 'red',
+                              flexDirection: 'row',
+                         }}>
+                         <Icon name="logo-tux" size={25} color={colores.primary} />
                          <Text style={styles.menuItemsText}>Tabs</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                          onPress={() => navigation.navigate('SettingsScreen')}
-                         style={styles.menuBoton}>
+                         style={{
+                              ...styles.menuBoton,
+                              // backgroundColor: 'red',
+                              flexDirection: 'row',
+                         }}>
+                         <Icon name="construct-outline" size={25} color={colores.primary} />
                          <Text style={styles.menuItemsText}>Ajustes</Text>
                     </TouchableOpacity>
 

@@ -1,14 +1,16 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { Text, Platform } from 'react-native';
 
 import Tab1Screen from './Tab1Screen';
-import Tab2Screen from './Tab2Screen';
+// import Tab2Screen from './Tab2Screen';
 // import Tab3Screen from './Tab3Screen';
 import { MyStack } from './StackNavigator';
 import { colores } from '../theme/appTheme';
-import { Text, Platform } from 'react-native';
+import { TopTapNavigator } from './TopTabNavigator';
 
 export const Tabs = () => {
 
@@ -35,22 +37,22 @@ const TabsAndroid = () => {
                          let iconName: string = '';
                          switch (route.name) {
                               case 'Tab1Screen':
-                                   iconName = 'T1';
+                                   iconName = 'laptop-outline';
                                    break;
                               case 'Tab2Screen':
-                                   iconName = 'T2';
+                                   iconName = 'library-outline';
                                    break;
                               case 'MyStack':
-                                   iconName = 'ST';
+                                   iconName = 'star-half-outline';
                                    break;
                          }
 
-                         return <Text style={{ color }}>{iconName}</Text>;
+                         return <Icon name={iconName} size={22} color="white" />;
                     },
                })}
           >
                <ButtonTabAndroid.Screen name="Tab1Screen" options={{ title: 'Tab1' }} component={Tab1Screen} />
-               <ButtonTabAndroid.Screen name="Tab2Screen" options={{ title: 'Tab2' }} component={Tab2Screen} />
+               <ButtonTabAndroid.Screen name="Tab2Screen" options={{ title: 'Tab2' }} component={TopTapNavigator} />
                <ButtonTabAndroid.Screen name="MyStack" options={{ title: 'Stack' }} component={MyStack} />
           </ButtonTabAndroid.Navigator>
      );
@@ -88,6 +90,7 @@ const TabsIOS = () => {
                     tabBarInactiveTintColor: colores.primary,
                     tabBarStyle: {
                          borderTopColor: colores.primary,
+                         borderTopWidth: 0,
                          elevation: 0,
                     },
                     tabBarLabelStyle: {
@@ -97,7 +100,7 @@ const TabsIOS = () => {
           >
                {/* <Tab.Screen name="Tab1Screen" options={{ title: 'Tab1', tabBarIcon: (props) => <Text style={{color: props.color}}>T1</Text>}} component={Tab1Screen} /> */}
                <BottonTabIOS.Screen name="Tab1Screen" options={{ title: 'Tab1' }} component={Tab1Screen} />
-               <BottonTabIOS.Screen name="Tab2Screen" options={{ title: 'Tab2' }} component={Tab2Screen} />
+               <BottonTabIOS.Screen name="Tab2Screen" options={{ title: 'Tab2' }} component={TopTapNavigator} />
                <BottonTabIOS.Screen name="MyStack" options={{ title: 'Stack' }} component={MyStack} />
           </BottonTabIOS.Navigator>
      );
