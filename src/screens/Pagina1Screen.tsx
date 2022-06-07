@@ -13,6 +13,7 @@ interface DrawerProps extends DrawerScreenProps<any, any> { }
 
 const Pagina1Screen = ({ navigation }: DrawerProps) => {
 
+
      useEffect(() => {
 
           navigation.setOptions({
